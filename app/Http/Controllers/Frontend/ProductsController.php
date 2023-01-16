@@ -16,7 +16,8 @@ class ProductsController extends Controller
 
     public function create()
     {
-        return view('frontend.products.create');
+        $params = Category::ALL();
+        return view('frontend.products.create', compact('params'));
     }
 
     public function store(Request $request)

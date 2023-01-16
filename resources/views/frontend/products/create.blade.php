@@ -9,50 +9,60 @@
                     </div>
                     <form class="form-horizontal" action="{{ url('product') }}" method="POST" enctype="multipart/form-data">
                         @csrf
-
                         <div class="box-body">
                             <input type="hidden" id="user_id" name="user_id" value="{{ auth()->user()->id }}" />
-
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Minimal</label>
-                                        <select class="form-control select2" style="width: 100%;">
-                                            <option selected="selected">Alabama</option>
-                                            <option>Alaska</option>
-                                            <option>California</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Disabled</label>
-                                        <select class="form-control select2" disabled="disabled" style="width: 100%;">
-                                            <option selected="selected">Alabama</option>
-                                            <option>Alaska</option>
-                                            <option>California</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Minimal</label>
-                                        <select class="form-control select2" style="width: 100%;">
-                                            <option selected="selected">Alabama</option>
-                                            <option>Alaska</option>
-                                            <option>California</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Disabled</label>
-                                        <select class="form-control select2" disabled="disabled" style="width: 100%;">
-                                            <option selected="selected">Alabama</option>
-                                            <option>Alaska</option>
-                                            <option>California</option>
-                                        </select>
-                                    </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Category</label>
+                                <div class="col-sm-10">
+                                    <select class="form-control" style="width: 100%;" name="categories_id">
+                                        <option>California</option>
+                                    </select>
+                                    <select class="form-control" id="category_id" name="category_id">
+                                        @foreach ($params as $param)
+                                            @if($param->status == 1)
+                                                <option value="{{ $param->id }}">{{ $param->name_kh }} {{ $param->name_en }}</option>
+                                            @endif
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
-
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Name Khmer</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="name_kh">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Name English</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="name_en">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Price</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="price">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Remark</label>
+                                <div class="col-sm-10">
+                                    <textarea class="form-control" rows="3" name="remark" placeholder="Enter ..."></textarea>
+                                </div>
+                            </div>                    
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Image</label>
+                                <div class="col-sm-10">
+                                    <input type="file" class="form-control" name="image">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-10">
+                                    <label>
+                                        <input type="checkbox" class="minimal-red" name="status" checked> &nbsp; Status
+                                    </label>
+                                </div>
+                            </div>
                         </div>
                         <div class="box-footer">
                             <button type="submit" class="btn btn-primary btn-sm">Save</button>

@@ -11,13 +11,13 @@
                         @csrf @method('PUT')
                         <div class="box-body">
                             <div class="form-group">
-                                <label for="name" class="col-sm-2 control-label">Name Khmer</label>
+                                <label class="col-sm-2 control-label">Name Khmer</label>
                                 <div class="col-sm-10">
                                     <input type="text" class="form-control" name="name_khmer" value="{{ $params->name_khmer }}">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="name" class="col-sm-2 control-label">Name English</label>
+                                <label class="col-sm-2 control-label">Name English</label>
                                 <div class="col-sm-10">
                                     <input type="text" class="form-control" name="name_english" value="{{ $params->name_english }}">
                                 </div>

@@ -12,13 +12,13 @@
                         <div class="box-body">
                             <input type="hidden" id="user_id" name="user_id" value="{{ auth()->user()->id }}"/>
                             <div class="form-group">
-                                <label for="name" class="col-sm-2 control-label">Name Khmer</label>
+                                <label class="col-sm-2 control-label">Name Khmer</label>
                                 <div class="col-sm-10">
                                     <input type="text" class="form-control" name="name_khmer">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="name" class="col-sm-2 control-label">Name English</label>
+                                <label class="col-sm-2 control-label">Name English</label>
                                 <div class="col-sm-10">
                                     <input type="text" class="form-control" name="name_english">
                                 </div>

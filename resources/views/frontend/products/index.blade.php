@@ -6,7 +6,7 @@
                 <div class="box">
                     <div class="box-header">
                         <div class="input-group">
-                            {{-- @can('category-create') --}}
+                            {{-- @can('product-create') --}}
                                 <a href="{{ url('product/create')}}" class="btn btn-default btn-sm"> Create </a>
                             {{-- @endcan --}}
                         </div>
@@ -29,7 +29,9 @@
                                     @foreach ($params as $index => $item)
                                         <tr>
                                             <td>{{ str_pad($index + 1, 2, '0', STR_PAD_LEFT) }}</td>
-                                            <td>{{ $item->name_khmer }}</td>
+                                            <td>{{ $item->image }}</td>
+                                            <td>{{ $item->name_kh }}</td>
+                                            <td>{{ $item->remark }}</td>
                                             <td>{{ $item->user->name }}</td>
                                             <td class="text-center">
                                                 <span class="{{ $item->status == 1 ? 'badge bg-green' : 'badge bg-red' }}">{{ $item->status == 1 ? 'Active' : 'Inactive' }}</span>
