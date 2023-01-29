@@ -21,10 +21,19 @@ class CategoryController extends Controller
 
     public function store(Request $request)
     {
+        $this->validate($request,
+        [
+            'name_khmer' => 'required',
+            'name_english' => 'required',
+        ],
+        [
+            'name_khmer.required' => 'Please enter category title khmer',
+            'name_english.required' => 'Please enter category title english',
+        ]);
         $params = $request->all();
         $params['status'] = $request->status == 'on' ? '1' : '0';
         Category::create($params);
-        return redirect('category');
+        return redirect()->route('category.index')->with('error', 'Something wrong');
     }
 
     public function show($id)

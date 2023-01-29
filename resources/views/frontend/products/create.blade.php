@@ -14,13 +14,10 @@
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">Category</label>
                                 <div class="col-sm-10">
-                                    <select class="form-control" style="width: 100%;" name="categories_id">
-                                        <option>California</option>
-                                    </select>
-                                    <select class="form-control" id="category_id" name="category_id">
+                                    <select class="form-control select2" id="category_id" name="category_id" style="width: 100%;">
                                         @foreach ($params as $param)
                                             @if($param->status == 1)
-                                                <option value="{{ $param->id }}">{{ $param->name_kh }} {{ $param->name_en }}</option>
+                                                <option value="{{ $param->id }}">{{ $param->name_khmer }}</option>
                                             @endif
                                         @endforeach
                                     </select>
@@ -40,8 +37,12 @@
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">Price</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="price">
+                                <div class="col-sm-10 ">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">$</span>
+                                        <input type="text" class="form-control" name="price">
+                                        <span class="input-group-addon">.00</span>
+                                    </div> 
                                 </div>
                             </div>
                             <div class="form-group">
@@ -53,8 +54,8 @@
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">Image</label>
                                 <div class="col-sm-10">
-                                    <input type="file" class="form-control" name="image">
-                                </div>
+                                    <input type="file" name="image" id="image" data-plugins="dropify" class="dropify" data-default-file=""/>
+                               </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-sm-offset-2 col-sm-10">

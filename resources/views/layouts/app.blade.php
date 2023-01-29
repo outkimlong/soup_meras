@@ -16,7 +16,9 @@
         <link rel="stylesheet" href="{{ asset('admin-2.4.15/bower_components/bootstrap-daterangepicker/daterangepicker.css') }}">
         <link rel="stylesheet" href="{{ asset('admin-2.4.15/plugins/iCheck/all.css') }}">
         <link rel="stylesheet" href="{{ asset('admin-2.4.15/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('admin-2.4.15/bower_components/select2/dist/css/select2.css') }}">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+        <link rel="stylesheet" type="text/css" href="{{asset('admin-2.4.15/dist/css/dropify.css')}}" />
     </head>
     <body class="hold-transition skin-blue sidebar-mini">
         <div class="wrapper">
@@ -37,6 +39,7 @@
         <script src="{{ asset('admin-2.4.15/bower_components/jquery-ui/jquery-ui.min.js') }}"></script>
         <script>$.widget.bridge('uibutton', $.ui.button)</script>
         <script src="{{ asset('admin-2.4.15/bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+        <script src="{{ asset('admin-2.4.15/bower_components/select2/dist/js/select2.full.min.js') }}"></script>
         <script src="{{ asset('admin-2.4.15/bower_components/raphael/raphael.min.js') }}"></script>
         <script src="{{ asset('admin-2.4.15/bower_components/jquery-sparkline/dist/jquery.sparkline.min.js') }}"></script>
         <script src="{{ asset('admin-2.4.15/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js') }}"></script>
@@ -51,12 +54,15 @@
         <script src="{{ asset('admin-2.4.15/bower_components/fastclick/lib/fastclick.js') }}"></script>
         <script src="{{ asset('admin-2.4.15/dist/js/adminlte.min.js') }}"></script>
         <script src="{{ asset('admin-2.4.15/dist/js/demo.js') }}"></script>
+        <script src="{{asset('admin-2.4.15/dist/js/dropify.js')}}"></script>
         <script>
             $(function () {
                 $('input[type="checkbox"].minimal-red, input[type="radio"].minimal-red').iCheck({
                     checkboxClass: 'icheckbox_minimal-red',
                     radioClass   : 'iradio_minimal-red'
                 })
+                $('.dropify').dropify();
+                $('.select2').select2()
             });
         </script>
     </body>

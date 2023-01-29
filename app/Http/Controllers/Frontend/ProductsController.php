@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Product;
+use App\Models\{Product, Category};
 
 class ProductsController extends Controller
 {
@@ -16,13 +16,18 @@ class ProductsController extends Controller
 
     public function create()
     {
-        $params = Category::ALL();
+        $params = Category::where('status', '=', 1)->get();
         return view('frontend.products.create', compact('params'));
     }
 
     public function store(Request $request)
     {
-        //
+        dd($request);
+        $params = $request->all();
+        $params['status'] = $request->status == 'on' ? '1' : '0';
+        
+        Category::create($params);
+        return redirect('category');
     }
 
     public function show($id)
