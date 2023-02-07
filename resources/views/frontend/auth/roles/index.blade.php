@@ -9,7 +9,7 @@
                     <div class="box">
                         <div class="box-header">
                             @can('role-create')
-                                <a href="{{ url('roles/create')}}" class="btn btn-primary btn-sm">Create</a>
+                                <a href="{{ url('role/create')}}" class="btn btn-default btn-sm">Create</a>
                             @endcan
                         </div>
                         <div class="box-body table-responsive">
@@ -30,14 +30,14 @@
                                             <td>{{ $role->created_at }}</td>
                                             <td class="text-center">
                                                 @can('role-show')
-                                                    <a href="{{ route('roles.show', $role->id) }}"> View &nbsp;&nbsp;</a>
+                                                    <a href="{{ route('role.show', $role->id) }}"> View &nbsp;&nbsp;</a>
                                                 @endcan
                                                 @can('role-edit')
-                                                    <a href="{{ url('roles/'.$role->id.'/edit' )}}"> Edit &nbsp;&nbsp;</a>
+                                                    <a href="{{ url('role/'.$role->id.'/edit' )}}"> Edit &nbsp;&nbsp;</a>
                                                 @endcan
                                                 @can('role-delete')
-                                                    {!! Form::open(['method' => 'DELETE','route' => ['roles.destroy', $role->id],'style'=>'display:inline','onsubmit' => 'return confirm("Are you sure?")' ]) !!}
-                                                        <a href="#" onclick="$(this).closest('form').submit();"> Delete</a>
+                                                    {!! Form::open(['method' => 'DELETE','route' => ['role.destroy', $role->id],'style'=>'display:inline','onsubmit' => 'return confirm("Are you sure?")' ]) !!}
+                                                        <a href="#" onclick="$(this).closest('form').submit();" style="color: red">Delete</a>
                                                     {!! Form::close() !!}
                                                 @endcan
                                             </td> 

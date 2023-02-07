@@ -17,6 +17,7 @@
                                 <tr>
                                     <th style="width: 10px">#</th>
                                     <th>Image</th>
+                                    <th>Category</th>
                                     <th>Name</th>
                                     <th>Remark</th>
                                     <th>Creator</th>
@@ -29,25 +30,27 @@
                                     @foreach ($params as $index => $item)
                                         <tr>
                                             <td>{{ str_pad($index + 1, 2, '0', STR_PAD_LEFT) }}</td>
-                                            <td>{{ $item->image }}</td>
+                                            <td>
+                                                <img src="{{asset('storage/'.$item->image)}}" style="object-fit: cover" alt="OOps" height="50px" width="90px">
+                                            </td>
+                                            <td>{{ $item->category->name_kh ?? '' }}</td>
                                             <td>{{ $item->name_kh }}</td>
-                                            <td>{{ $item->remark }}</td>
+                                            <td>{{ str_limit($item->remark, 70) }}</td>
                                             <td>{{ $item->user->name }}</td>
                                             <td class="text-center">
                                                 <span class="{{ $item->status == 1 ? 'badge bg-green' : 'badge bg-red' }}">{{ $item->status == 1 ? 'Active' : 'Inactive' }}</span>
                                             </td>
                                             <td class="text-center">
-                                                {{-- @can('product-edit') --}}
-                                                    <a href="{{ route('product.edit', $item->id) }}"> Update </a>
-                                                {{-- @endcan --}}
-                                                &nbsp;
-                                                {{-- @can('product-delete') --}}
-                                                {!! Form::open(['method' => 'DELETE','route' => ['product.destroy', $item->id],'style'=>'display:inline','onsubmit' => 'return confirm("Are you sure?")' ]) !!}
-                                                    <a href="#" onclick="$(this).closest('form').submit();" style="color: red"> 
-                                                        Delete
-                                                    </a>
-                                                {!! Form::close() !!}
-                                                {{-- @endcan --}}
+                                                @can('product-edit')
+                                                    <a href="{{ route('product.edit', $item->id) }}"> Edit &nbsp;&nbsp;</a>
+                                                @endcan
+                                                @can('product-delete')
+                                                    {!! Form::open(['method' => 'DELETE','route' => ['product.destroy', $item->id],'style'=>'display:inline','onsubmit' => 'return confirm("Are you sure?")' ]) !!}
+                                                        <a href="#" onclick="$(this).closest('form').submit();" style="color: red"> 
+                                                            Delete
+                                                        </a>
+                                                    {!! Form::close() !!}
+                                                @endcan
                                             </td>
                                         </tr>
                                     @endforeach

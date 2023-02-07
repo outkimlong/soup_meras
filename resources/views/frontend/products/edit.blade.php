@@ -14,14 +14,11 @@
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">Category</label>
                                 <div class="col-sm-10">
-                                    <select class="form-control" style="width: 100%;" name="categories_id">
-                                        <option>California</option>
-                                    </select>
-                                    {{-- <select class="form-control select" id="category_id" name="category_id">
+                                    <select class="form-control select" id="categories_id" name="categories_id">
                                         @foreach ($categories as $category)
-                                            <option  value="{{ $category->id }}" {{ $category->id == $news->category_id ? 'selected' : '' }} >{{ $category->title_kh }} {{ $category->title_eng }}</option>
+                                            <option  value="{{ $category->id }}" {{ $category->id == $params->categories_id ? 'selected' : '' }}>{{ $category->name_kh }}</option>
                                         @endforeach
-                                    </select> --}}
+                                    </select>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -38,8 +35,15 @@
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">Price</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="price" value="{{ $params->price }}">
+                                <div class="col-sm-10 ">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">$</span>
+                                        <input type="text" class="form-control" name="price" value="{{ $params->price }}">
+                                        <span class="input-group-addon">.00</span>
+                                    </div> 
+                                    @if($errors)
+                                        <span class="text-yellow">{{$errors->first('price')}}</span>
+                                    @endif
                                 </div>
                             </div>
                             <div class="form-group">
@@ -47,12 +51,15 @@
                                 <div class="col-sm-10">
                                     <textarea class="form-control" rows="3" name="remark" >{{ $params->remark }}</textarea>
                                 </div>
-                            </div>                    
+                            </div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">Image</label>
                                 <div class="col-sm-10">
-                                    <input type="file" class="form-control" name="image">
-                                </div>
+                                    <input type="file" name="image" id="image" data-plugins="dropify" class="dropify" data-default-file="{{asset('storage/'.$params->image)}}" />
+                                    @if($errors)
+                                        <span class="text-yellow">{{$errors->first('image')}}</span>
+                                    @endif
+                               </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-sm-offset-2 col-sm-10">

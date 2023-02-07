@@ -18,17 +18,18 @@
                 <form method="POST" action="{{ route('login') }}">
                 @csrf
                 <div class="form-group has-feedback">
-                    <input type="text" id="email" name="email" class="form-control @error('email') is-invalid @enderror" placeholder="Username" value="{{ old('email') }}">
+                    <input type="text" id="name" name="name" class="form-control @error('name') is-invalid @enderror" placeholder="Name" value="{{ old('name') }}">
                     <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-                    @error('email')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
+                    @error('name')
+                        <span class="text-yellow">{{$message}}</span>
                     @enderror
                 </div>
                 <div class="form-group has-feedback">
                     <input type="password" name="password" id="password" class="form-control" placeholder="Password">
                     <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                    @error('password')
+                        <span class="text-yellow">{{$message}}</span>
+                    @enderror
                 </div>
                 <div class="row">
                     <div class="col-xs-4">

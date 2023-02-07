@@ -13,17 +13,20 @@
                             <input type="hidden" id="user_id" name="user_id" value="{{ auth()->user()->id }}"/>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">Name Khmer</label>
-                                <div class="col-sm-10 ">
-                                    <input type="text" class="form-control" name="name_khmer">
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="name_kh">
                                     @if($errors)
-                                        <span class="has-warning help-block">{{ $errors->first('name_khmer') }}</span>
+                                        <span class="text-yellow">{{$errors->first('name_kh')}}</span>
                                     @endif
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">Name English</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="name_english">
+                                    <input type="text" class="form-control" name="name_en">
+                                    @if($errors)
+                                        <span class="text-yellow">{{$errors->first('name_en')}}</span>
+                                    @endif
                                 </div>
                             </div>
                             <div class="form-group">

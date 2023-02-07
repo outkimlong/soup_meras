@@ -6,9 +6,9 @@
                 <div class="box">
                     <div class="box-header">
                         <div class="input-group">
-                            {{-- @can('category-create') --}}
+                            @can('category-create')
                                 <a href="{{ url('category/create')}}" class="btn btn-default btn-sm"> Create </a>
-                            {{-- @endcan --}}
+                            @endcan
                         </div>
                     </div>
                     <div class="box-body">
@@ -27,23 +27,22 @@
                                     @foreach ($params as $index => $item)
                                         <tr>
                                             <td>{{ str_pad($index + 1, 2, '0', STR_PAD_LEFT) }}</td>
-                                            <td>{{ $item->name_khmer }}</td>
+                                            <td>{{ $item->name_kh }}</td>
                                             <td>{{ $item->user->name }}</td>
                                             <td class="text-center">
                                                 <span class="{{ $item->status == 1 ? 'badge bg-green' : 'badge bg-red' }}">{{ $item->status == 1 ? 'Active' : 'Inactive' }}</span>
                                             </td>
                                             <td class="text-center">
-                                                {{-- @can('category-edit') --}}
-                                                    <a href="{{ route('category.edit', $item->id) }}"> Update </a>
-                                                {{-- @endcan --}}
-                                                &nbsp;
-                                                {{-- @can('category-delete') --}}
-                                                {!! Form::open(['method' => 'DELETE','route' => ['category.destroy', $item->id],'style'=>'display:inline','onsubmit' => 'return confirm("Are you sure?")' ]) !!}
-                                                    <a href="#" onclick="$(this).closest('form').submit();" style="color: red"> 
-                                                        Delete
-                                                    </a>
-                                                {!! Form::close() !!}
-                                                {{-- @endcan --}}
+                                                @can('category-edit')
+                                                    <a href="{{ route('category.edit', $item->id) }}"> Edit &nbsp;&nbsp;</a>
+                                                @endcan
+                                                @can('category-delete')
+                                                    {!! Form::open(['method' => 'DELETE','route' => ['category.destroy', $item->id],'style'=>'display:inline','onsubmit' => 'return confirm("Are you sure?")' ]) !!}
+                                                        <a href="#" onclick="$(this).closest('form').submit();" style="color: red"> 
+                                                            Delete
+                                                        </a>
+                                                    {!! Form::close() !!}
+                                                @endcan
                                             </td>
                                         </tr>
                                     @endforeach

@@ -17,8 +17,8 @@ class CreateCategoryTable extends Migration
             $table->id();
             $table->unsignedInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->string('name_khmer', 50);
-            $table->string('name_english', 50);
+            $table->string('name_kh', 50);
+            $table->string('name_en', 50);
             $table->boolean('status')->default(1);
             $table->timestamps();
         });

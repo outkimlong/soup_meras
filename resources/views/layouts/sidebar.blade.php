@@ -2,7 +2,7 @@
     <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
         <li class="{{ set_active('home.index') }}">
-            <a href="{{ route('home.index') }}"><i class="fa fa-home"></i> 
+            <a href="{{ url('home') }}"><i class="fa fa-home"></i> 
                 <span>Home</span>
             </a>
         </li>
@@ -19,16 +19,14 @@
             </ul>
         </li>
         <li class="{{ set_active('category.index') }}">
-            <a href="{{ route('category.index') }}"><i class="fa fa-folder-o"></i> 
-                <span>Category</span>
+            <a href="{{ url('category') }}"><i class="fa fa-folder-o"></i>
+                <span> Category </span>
             </a>
         </li>
         <li class="{{ set_active('product.index') }}">
-            <a href="{{ route('product.index') }}"><i class="fa fa-folder-o"></i> 
-                <span>Product</span>
+            <a href="{{ url('product') }}"><i class="fa fa-folder-o"></i> 
+                <span> Product </span>
             </a>
         </li>
-        
     </ul>
-
 </section>

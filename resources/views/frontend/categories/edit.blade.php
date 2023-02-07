@@ -13,13 +13,19 @@
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">Name Khmer</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="name_khmer" value="{{ $params->name_khmer }}">
+                                    <input type="text" class="form-control" name="name_kh" value="{{ $params->name_kh }}">
+                                    @if($errors)
+                                        <span class="text-yellow">{{$errors->first('name_kh')}}</span>
+                                    @endif
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">Name English</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="name_english" value="{{ $params->name_english }}">
+                                    <input type="text" class="form-control" name="name_en" value="{{ $params->name_en }}">
+                                    @if($errors)
+                                        <span class="text-yellow">{{$errors->first('name_en')}}</span>
+                                    @endif
                                 </div>
                             </div>
                             <div class="form-group">

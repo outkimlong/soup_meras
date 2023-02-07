@@ -17,7 +17,7 @@
             </div>
         @endif
         <section class="content">
-            <form action="{{ url('roles/' .$role->id) }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ url('role/' .$role->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf @method('PATCH')
                 <div class="panel panel-default">
                     <div class="panel-body">
@@ -48,7 +48,7 @@
                                                     @foreach($permission as $value)
                                                         <tr>
                                                             <td>
-                                                                {{ Form::checkbox('permission[]', $value->id, in_array($value->id, $rolePermissions) ? true : false, array('class' => 'flat')) }}
+                                                                {{ Form::checkbox('permission[]', $value->id, in_array($value->id, $rolePermissions) ? true : false, array('class' => 'flat minimal-red')) }}
                                                             </td>
                                                             <td>{{ $value->name }}</td>
                                                         </tr>
@@ -63,6 +63,7 @@
                     </div>
                     <div class="box-footer">
                         <button type="submit" class="btn btn-success btn-sm">Update</button>
+                        <a href="{{ url('role') }}" class="btn btn-default btn-sm pull-right">Cancel</a>
                     </div>
                 </div>
             </form>

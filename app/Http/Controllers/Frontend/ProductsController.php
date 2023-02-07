@@ -22,12 +22,32 @@ class ProductsController extends Controller
 
     public function store(Request $request)
     {
-        dd($request);
-        $params = $request->all();
-        $params['status'] = $request->status == 'on' ? '1' : '0';
-        
-        Category::create($params);
-        return redirect('category');
+        $this->validate($request,
+        [
+            'name_kh' => 'required',
+            'name_en' => 'required',
+            'price' => 'required',
+            'image' => 'required'
+        ],
+        [
+            'name_kh.required' => '* Please enter product title khmer',
+            'name_en.required' => '* Please enter product title english',
+            'price.required' => '* Please enter product price',
+            'image.required' => '* Please enter product image',
+        ]);
+        if ($request->hasFile('image')) {
+            $path = $request->file('image')->store('products', 'public');
+            $params = $request->all();
+            $params['image'] = $path;
+            $params['status'] = $request->status == 'on' ? '1' : '0';
+            $product = Product::create($params);
+            if ($product->save()) {
+                return redirect()->route('product.index')->with('message', 'Product created');
+            } else {
+                return redirect()->route('product.index')->with('error', 'Something wrong');
+            }
+        }
+        return redirect()->route('product.index')->with('error', 'Something wrong');
     }
 
     public function show($id)
@@ -37,17 +57,43 @@ class ProductsController extends Controller
 
     public function edit($id)
     {
+        $categories = Category::where('status', '=', 1)->get();
         $params = Product::where('id', '=', $id)->first();
-        return view('frontend.products.edit', compact('params'));
+        return view('frontend.products.edit', compact('params', 'categories'));
     }
 
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,
+        [
+            'name_kh' => 'required',
+            'name_en' => 'required',
+            'price' => 'required',
+            'image' => 'required'
+        ],
+        [
+            'name_kh.required' => '* Please enter product title khmer',
+            'name_en.required' => '* Please enter product title english',
+            'price.required' => '* Please enter product price',
+            'image.required' => '* Please enter product image',
+        ]);
+        $product = Product::find($id);
+        $params = $request->all();
+        if ($request->hasFile('image')) {
+            $path = $request->file('image')->store('products', 'public');
+            $product->image = $path;
+            $params['image'] = $path;
+            $params['status'] = $request->status == 'on' ? '1' : '0';
+            $product->update($params);
+        }
+        return redirect()->route('product.index');
     }
 
     public function destroy($id)
     {
-        //
+        $product = Product::find($id);
+        Storage::delete('public'.$product->image);
+        $product->delete();
+        return redirect('product');
     }
 }

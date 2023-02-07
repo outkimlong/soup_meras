@@ -23,17 +23,17 @@ class CategoryController extends Controller
     {
         $this->validate($request,
         [
-            'name_khmer' => 'required',
-            'name_english' => 'required',
+            'name_kh' => 'required',
+            'name_en' => 'required',
         ],
         [
-            'name_khmer.required' => 'Please enter category title khmer',
-            'name_english.required' => 'Please enter category title english',
+            'name_kh.required' => '* Please enter category title khmer',
+            'name_en.required' => '* Please enter category title english',
         ]);
         $params = $request->all();
         $params['status'] = $request->status == 'on' ? '1' : '0';
         Category::create($params);
-        return redirect()->route('category.index')->with('error', 'Something wrong');
+        return redirect()->route('category.index');
     }
 
     public function show($id)
@@ -49,6 +49,14 @@ class CategoryController extends Controller
 
     public function update(Request $request, $id)
     {
+        $this->validate($request,
+        [
+            'name_kh' => 'required',
+            'name_en' => 'required',
+        ], [
+            'name_kh.required' => '* Please enter category title khmer',
+            'name_en.required' => '* Please enter category title english',
+        ]);
         $params = Category::where('id', '=', $id)->first();
         $req = $request->all();
         $req['status'] = $request->status == 'on' ? '1' : '0';

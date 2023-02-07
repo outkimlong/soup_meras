@@ -62,7 +62,7 @@
                     radioClass   : 'iradio_minimal-red'
                 })
                 $('.dropify').dropify();
-                $('.select2').select2()
+                $('.select').select2()
             });
         </script>
     </body>
