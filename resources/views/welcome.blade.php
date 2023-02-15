@@ -43,32 +43,28 @@
                 </div>
                 <div class="row" data-aos-delay="100">
                     <div class="col-lg-12 d-flex justify-content-center">
-                      <ul id="menu-flters">
-                        <li data-filter="*" class="filter-active">All</li>
-                        <li data-filter=".starters">Starters</li>
-                        <li data-filter=".salads">Salads</li>
-                        <li data-filter=".specialty">Specialty</li>
-                      </ul>
+                        <ul id="menu-flters">
+                            <li data-filter="*" name="id">All</li>
+                            <li data-filter=".starters">Starters</li>
+                            <li data-filter=".salads">Salads</li>
+                            <li data-filter=".specialty">Specialty</li>
+                        </ul>
                     </div>
-                  </div>
+                </div>
                 <div class="row menu-container" data-aos-delay="200">
                     <div class="col-lg-6 menu-item starters">
                         <img src="frontend/img/menu/lobster-bisque.jpg" class="menu-img" alt="">
                         <div class="menu-content">
-                          <a href="#">Lobster Bisque</a><span>$5.95</span>
+                            <a href="#">Lobster Bisque</a><span>$5.95</span>
                         </div>
-                        <div class="menu-ingredients">
-                          Lorem, deren, trataro, filede, nerada
-                        </div>
+                        <div class="menu-ingredients">Lorem, deren, trataro, filede, nerada</div>
                     </div>
                     <div class="col-lg-6 menu-item specialty">
                         <img src="frontend/img/menu/bread-barrel.jpg" class="menu-img" alt="">
                         <div class="menu-content">
-                          <a href="#">Bread Barrel</a><span>$6.95</span>
+                            <a href="#">Bread Barrel</a><span>$6.95</span>
                         </div>
-                        <div class="menu-ingredients">
-                          Lorem, deren, trataro, filede, nerada
-                        </div>
+                        <div class="menu-ingredients">Lorem, deren, trataro, filede, nerada</div>
                     </div>
                 </div>
             </div>
@@ -87,7 +83,6 @@
                                 <strong>Phone:</strong> +1 5589 55488 55<br>
                                 <strong>Email:</strong> info@example.com<br>
                             </p>
-
                         </div>
                     </div>
                 </div>
@@ -103,8 +98,7 @@
         </div>
     </footer>
     <div id="preloader"></div>
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-            class="bi bi-arrow-up-short"></i></a>
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
     <script src="{{ asset('frontend/vendor/aos/aos.js') }}"></script>
     <script src="{{ asset('frontend/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('frontend/vendor/glightbox/js/glightbox.min.js') }}"></script>
