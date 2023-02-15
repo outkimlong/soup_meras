@@ -4,9 +4,6 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
 Auth::routes();
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Route::group(['middleware' => ['auth']], function() {
     Route::resource('home', 'Frontend\HomeController');
@@ -15,3 +12,5 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('category', 'Frontend\CategoryController');    
     Route::resource('product', 'Frontend\ProductsController');
 });
+
+Route::get('/', 'WelcomeController@index')->name('/');

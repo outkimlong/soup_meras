@@ -77,23 +77,23 @@ class ProductsController extends Controller
             'name_kh' => 'required',
             'name_en' => 'required',
             'price' => 'required',
-            'image' => 'required'
         ],
         [
             'name_kh.required' => '* Please enter product title khmer',
             'name_en.required' => '* Please enter product title english',
             'price.required' => '* Please enter product price',
-            'image.required' => '* Please enter product image',
         ]);
         $product = Product::find($id);
         $params = $request->all();
         if ($request->hasFile('image')) {
             $path = $request->file('image')->store('products', 'public');
             $product->image = $path;
-            $params['image'] = $path;
-            $params['status'] = $request->status == 'on' ? '1' : '0';
-            $product->update($params);
+        } else {
+             $path = $product->image;
         }
+        $params['image'] = $path;
+        $params['status'] = $request->status == 'on' ? '1' : '0';
+        $product->update($params);
         return redirect()->route('product.index');
     }
 
