@@ -8,9 +8,17 @@ use App\Models\{Product, Category};
 
 class ProductsController extends Controller
 {
+    function __construct()
+    {
+         $this->middleware('permission:product-list|product-create|product-edit|product-delete', ['only' => ['index','store']]);
+         $this->middleware('permission:product-create', ['only' => ['create','store']]);
+         $this->middleware('permission:product-edit', ['only' => ['edit','update']]);
+         $this->middleware('permission:product-delete', ['only' => ['destroy']]);
+    }
+
     public function index()
     {
-        $params = Product::paginate(5);
+        $params = Product::all();
         return view('frontend.products.index', compact('params'));
     }
 

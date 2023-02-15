@@ -13,7 +13,7 @@
                             @endcan
                         </div>
                         <div class="box-body table-responsive">
-                            <table class="table table-bordered table-striped table-hover data-table">
+                            <table id="table" class="table table-bordered table-striped table-hover data-table">
                                 <thead>
                                     <tr>
                                         <th>#</th>
@@ -59,6 +59,9 @@
                                 </tbody>
                             </table>
                         </div>
+                        {{-- <div class="box-footer clearfix">
+                            {{ $data->links('pagination::default') }}
+                        </div> --}}
                     </div>
                 </div>
             </div>

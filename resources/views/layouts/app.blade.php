@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="{{ asset('admin-2.4.15/bower_components/bootstrap/dist/css/bootstrap.min.css') }}">
         <link rel="stylesheet" href="{{ asset('admin-2.4.15/bower_components/font-awesome/css/font-awesome.min.css') }}">
         <link rel="stylesheet" href="{{ asset('admin-2.4.15/bower_components/Ionicons/css/ionicons.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('admin-2.4.15/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css') }}">
         <link rel="stylesheet" href="{{ asset('admin-2.4.15/dist/css/AdminLTE.min.css') }}">
         <link rel="stylesheet" href="{{ asset('admin-2.4.15/dist/css/skins/_all-skins.min.css') }}">
         <link rel="stylesheet" href="{{ asset('admin-2.4.15/bower_components/jvectormap/jquery-jvectormap.css') }}">
@@ -39,6 +40,8 @@
         <script src="{{ asset('admin-2.4.15/bower_components/jquery-ui/jquery-ui.min.js') }}"></script>
         <script>$.widget.bridge('uibutton', $.ui.button)</script>
         <script src="{{ asset('admin-2.4.15/bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+        <script src="{{ asset('admin-2.4.15/bower_components/datatables.net/js/jquery.dataTables.min.js') }}"></script>
+        <script src="{{ asset('admin-2.4.15/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js') }}"></script>
         <script src="{{ asset('admin-2.4.15/bower_components/select2/dist/js/select2.full.min.js') }}"></script>
         <script src="{{ asset('admin-2.4.15/bower_components/raphael/raphael.min.js') }}"></script>
         <script src="{{ asset('admin-2.4.15/bower_components/jquery-sparkline/dist/jquery.sparkline.min.js') }}"></script>
@@ -62,7 +65,8 @@
                     radioClass   : 'iradio_minimal-red'
                 })
                 $('.dropify').dropify();
-                $('.select').select2()
+                $('.select').select2();
+                $('#table').DataTable();
             });
         </script>
     </body>

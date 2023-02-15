@@ -6,13 +6,13 @@
                 <div class="box">
                     <div class="box-header">
                         <div class="input-group">
-                            {{-- @can('product-create') --}}
+                            @can('product-create')
                                 <a href="{{ url('product/create')}}" class="btn btn-default btn-sm"> Create </a>
-                            {{-- @endcan --}}
+                            @endcan
                         </div>
                     </div>
                     <div class="box-body">
-                        <table class="table table-bordered">
+                        <table id="table" class="table table-bordered">
                             <thead>
                                 <tr>
                                     <th style="width: 10px">#</th>
@@ -62,11 +62,9 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="box-footer clearfix">
-                        <ul class="pagination pagination-sm no-margin pull-right">                         
-                            <li>{!! $params->appends(Request::all())->links() !!} </li>
-                        </ul>
-                    </div>
+                    {{-- <div class="box-footer clearfix">
+                        {{ $params->links('pagination::default') }}
+                    </div> --}}
                 </div>
             </div>
         </div>
