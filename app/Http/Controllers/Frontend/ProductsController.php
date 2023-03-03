@@ -18,7 +18,7 @@ class ProductsController extends Controller
 
     public function index()
     {
-        $params = Product::all();
+        $params =  Product::all();
         return view('frontend.products.index', compact('params'));
     }
 
@@ -46,9 +46,11 @@ class ProductsController extends Controller
         if ($request->hasFile('image')) {
             $path = $request->file('image')->store('products', 'public');
             $params = $request->all();
+
             $params['image'] = $path;
             $params['status'] = $request->status == 'on' ? '1' : '0';
             $product = Product::create($params);
+            
             if ($product->save()) {
                 return redirect()->route('product.index')->with('message', 'Product created');
             } else {

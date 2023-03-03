@@ -14,7 +14,7 @@
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">Category</label>
                                 <div class="col-sm-10">
-                                    <select class="form-control select" id="categories_id" name="categories_id" style="width: 100%;">
+                                    <select class="form-control select" id="category_id" name="category_id" style="width: 100%;">
                                         @foreach ($params as $param)
                                             @if($param->status == 1)
                                                 <option value="{{ $param->id }}">{{ $param->name_kh }}</option>

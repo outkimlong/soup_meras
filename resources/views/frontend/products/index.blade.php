@@ -28,6 +28,7 @@
                             <tbody>
                                 @if(!empty($params) && $params->count())
                                     @foreach ($params as $index => $item)
+        
                                         <tr>
                                             <td>{{ str_pad($index + 1, 2, '0', STR_PAD_LEFT) }}</td>
                                             <td>

@@ -14,9 +14,9 @@
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">Category</label>
                                 <div class="col-sm-10">
-                                    <select class="form-control select" id="categories_id" name="categories_id">
+                                    <select class="form-control select" id="category_id" name="category_id">
                                         @foreach ($categories as $category)
-                                            <option  value="{{ $category->id }}" {{ $category->id == $params->categories_id ? 'selected' : '' }}>{{ $category->name_kh }}</option>
+                                            <option  value="{{ $category->id }}" {{ $category->id == $params->category_id ? 'selected' : '' }}>{{ $category->name_kh }}</option>
                                         @endforeach
                                     </select>
                                 </div>

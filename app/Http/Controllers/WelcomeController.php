@@ -10,9 +10,8 @@ class WelcomeController extends Controller
 
     public function index()
     {
-        $response = Category::all();
-        $products = Product::all();
-        return view('welcome', compact('response', 'products'));
+        $response = Category::with('Products')->get();
+        return view('welcome', compact('response'));
     }
 
     public function create()
